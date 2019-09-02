@@ -1,0 +1,14 @@
+[
+  {
+    "type": "GAME",
+    "text": "Use a different mixer until the end of the game"
+  },
+  {
+    "type": "QUESTION",
+    "text": "$NAME if you've already peed since the start of the night, drink 3 times. Otherwise give out 3 sips"
+  },
+  {
+    "type": "VIRUS",
+    "text": "$NAME, you are the black hole! Each time someone has to drink, you drink a sip for them"
+  }
+]

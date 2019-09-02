@@ -1,0 +1,37 @@
+.fullscreen {
+    width: 100%;
+    height: auto;
+    bottom: 0px;
+    top: 0px;
+    left: 0;
+    position: absolute;
+    font-size: 60px;
+}
+
+.fullscreen:active {
+    font-size: 59px;
+}
+
+@media only screen and (max-width: 700px){
+    .fullscreen {
+        width: 100%;
+        height: auto;
+        bottom: 0px;
+        top: 0px;
+        left: 0;
+        position: absolute;
+        font-size: 30px;
+    }
+
+    .fullscreen:active {
+        font-size: 29px;
+    }
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}

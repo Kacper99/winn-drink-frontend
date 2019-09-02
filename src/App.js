@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
-import NavBar from "./components/NavBar";
+import './styles/divs.css'
+import './styles/text.css'
+import Game from "./pages/Game";
 
 export default function () {
     return (
-        <NavBar/>
+        <Game />
     );
 }

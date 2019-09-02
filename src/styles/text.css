@@ -1,0 +1,12 @@
+.centred {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.game-text {
+    color: white;
+}
