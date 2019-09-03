@@ -1,5 +1,5 @@
-html, body {
-  background-color: #e85e5e;
+html, body, form, div {
+  background-color: #e85e5e !important;
 }
 
 .App {

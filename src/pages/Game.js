@@ -1,11 +1,13 @@
 import React from 'react'
+import {Link} from "react-router-dom";
 
 class Game extends React.Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
-            questions: [],
+            questions: this.getQuestions(),
             question: {type: "", text: ""},
             endgame: false
         }
@@ -31,25 +33,39 @@ class Game extends React.Component {
         }
     }
 
-    componentWillMount() {
-        this.getQuestions();
-    }
-
     render() {
+        let playerPool = this.props.players.slice(); //Clone the array
+        const regex = /\$NAME/;
+        const globalRegex = /\$NAME/g;
+        let question = this.state.question.text;
+        var count = (question.match(globalRegex) || []).length; //Get number of names in the card
+
+        for (let i = 0; i < count; i++) {
+            const randomIndex = Math.floor(Math.random() * playerPool.length); //Get a random index to choose a player from
+            const randomPlayer = playerPool[randomIndex];
+            playerPool.splice(randomIndex, 1);
+            question = question.replace(regex, randomPlayer)
+        }
+
         return (
-            <div className="fullscreen" onClick={() => this.nextQuestion()}>
-                <div className="centred">
-                    {this.state.endgame ?
-                        <span>The end</span>
-                        :
-                        <>
-                            <span>{this.state.question.type}</span>
-                            <br/>
-                            <span className="game-text">{this.state.question.text}</span>
-                        </>
-                    }
+            <div className="container">
+                <div className="row">
+                    <Link to="/">
+                        <button type="button" className="btn btn-outline-light input-button">Add Players</button>
+                    </Link>
                 </div>
-            </div>
+                <div className="row jumbotron vertical-center justify-content-center" onClick={() => this.nextQuestion()}>
+                        {this.state.endgame ?
+                            <span className="display-4">The end</span>
+                            :
+                            <span>
+                                <span className="display-3">{this.state.question.type}</span>
+                                <br/>
+                                <span className="h1 game-text">{question}</span>
+                            </span>
+                        }
+                    </div>
+                </div>
         )
     }
 }
