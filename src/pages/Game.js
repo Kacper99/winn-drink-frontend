@@ -52,7 +52,9 @@ class Game extends React.Component {
             if (followUpCard !== undefined) { //If there is a follow up card add it to the stack
                 console.log(this.state.questions.length);
                 console.log(this.state.questions);
-                this.state.questions.splice(0, 0, followUpCard); //TODO: Randomly set the number of rounds
+                let challengeLength = Math.floor(Math.random() * (this.state.questions.length));
+                if (challengeLength < 5) challengeLength = 5;
+                this.state.questions.splice(-challengeLength, 0, followUpCard);
             }
 
             this.setState({question: {type: randomQuestion.type, text: question}})
