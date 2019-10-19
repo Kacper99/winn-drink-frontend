@@ -42,6 +42,9 @@ class Home extends React.Component {
         }
         return (
             <div className="container h-100">
+                <div className="row">
+                    <p className="h1 game-text">Add players</p>
+                </div>
                 <div className="row jumbotron vertical-center justify-content-center">
                     <form className="col-12" onSubmit={(event) => this.submitForm(event)}>
                         {inputs}

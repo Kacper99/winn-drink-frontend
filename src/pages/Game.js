@@ -15,7 +15,7 @@ class Game extends React.Component {
 
     async getQuestions() {
         //192.168.1.156
-        const response = await fetch("http://192.168.1.156:5000/cards", {mode: "cors", method: "GET"});
+        const response = await fetch(this.props.server + "/cards", {mode: "cors", method: "GET"});
         const myJson = await response.json();
         const question = {type: "Begin game", text: ""};
         console.log(myJson);
@@ -61,12 +61,19 @@ class Game extends React.Component {
         }
     }
 
+    componentWillMount() {
+        this.setState({questions: this.getQuestions()})
+    }
+
     render() {
         return (
             <div className="container">
                 <div className="row">
                     <Link to="/">
                         <button type="button" className="btn btn-outline-light input-button">Add Players</button>
+                    </Link>
+                    <Link to="/settings">
+                        <button type="button" className="btn btn-outline-light input-button">Settings</button>
                     </Link>
                 </div>
                 <div className="row jumbotron vertical-center justify-content-center" onClick={() => this.nextQuestion()}>

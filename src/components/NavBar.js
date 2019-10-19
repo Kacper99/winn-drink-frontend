@@ -9,6 +9,7 @@ export default function () {
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
                     <Nav.Link href="#features">Add Players</Nav.Link>
+                    <Nav.Link href="#features">Settings</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
