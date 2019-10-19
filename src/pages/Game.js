@@ -15,7 +15,7 @@ class Game extends React.Component {
 
     async getQuestions() {
         //192.168.1.156
-        const response = await fetch(this.props.server + "/cards", {mode: "cors", method: "GET"});
+        const response = await fetch(this.props.server + "/cards", {method: "GET"});
         const myJson = await response.json();
         const question = {type: "Begin game", text: ""};
         console.log(myJson);

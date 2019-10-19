@@ -9,7 +9,7 @@ import {Route, BrowserRouter as Router} from "react-router-dom";
 
 export default function () {
     const [players, setPlayers] = useState([]);
-    const [server, setServer] = useState("http://localhost:5000");
+    const [server, setServer] = useState("http://192.160.0.68:5000");
 
     return (
         <Router>
